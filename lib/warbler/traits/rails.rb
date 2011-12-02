@@ -12,7 +12,7 @@ module Warbler
       include Trait
 
       def self.detect?
-        File.exist?("config/environment.rb")
+        Warbler.framework_detection ? File.exist?("config/environment.rb") : false
       end
 
       def self.requires?(trait)
